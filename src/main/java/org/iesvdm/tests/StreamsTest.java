@@ -1,13 +1,18 @@
 package org.iesvdm.tests;
 
 import org.iesvdm.streams.*;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
+import static java.util.stream.Collectors.*;
+import static java.util.Comparator.*;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.fail;
 
@@ -101,9 +106,15 @@ class StreamsTest {
 			Date ultimoDia2016 = sdf.parse("2016-12-31");
 			
 			List<Pedido> list = pedHome.findAll();
-				
-			//TODO STREAMS	
-						
+
+			//TODO STREAMS
+
+			List<Pedido> pedidos = list.stream().filter(pedido -> pedido.getFecha().toString().contains("2017"))
+							.filter(pedido -> pedido.getTotal() < 500)
+									.collect(Collectors.toList());
+			System.out.println(pedidos.toString());
+			Assertions.assertTrue(pedidos.get(0).getTotal() <= 500);
+
 			pedHome.commitTransaction();
 		}
 		catch (RuntimeException e) {
@@ -128,7 +139,13 @@ class StreamsTest {
 	
 			List<Cliente> list = cliHome.findAll();
 			
-			//TODO STREAMS		
+			//TODO STREAMS
+
+			List <Cliente> clientes = list.stream().filter(cliente -> cliente.getPedidos().isEmpty())
+							.collect(Collectors.toList());
+
+			System.out.println(clientes);
+			Assertions.assertTrue(clientes.get(0).getPedidos().isEmpty());
 		
 			cliHome.commitTransaction();
 			
@@ -152,7 +169,13 @@ class StreamsTest {
 		
 			List<Comercial> list = comHome.findAll();		
 			
-			//TODO STREAMS		
+			//TODO STREAMS
+
+			List<Comercial> comerciales = list.stream().sorted(comparing(Comercial::getComision).reversed())
+							.limit(1)
+									.collect(Collectors.toList());
+
+			System.out.println(comerciales);
 				
 			comHome.commitTransaction();
 			
@@ -163,7 +186,7 @@ class StreamsTest {
 		}
 		
 	}
-	
+
 	/**
 	 * 4. Devuelve el identificador, nombre y primer apellido de aquellos clientes cuyo segundo apellido no es NULL. 
 	 * El listado deberá estar ordenado alfabéticamente por apellidos y nombre.
@@ -181,6 +204,19 @@ class StreamsTest {
 			//TODO STREAMS
 			
 			cliHome.commitTransaction();
+
+//			List<Cliente> clientes = list.stream().filter(cliente -> cliente.getApellido2() != null)
+//					.sorted(comparing(Cliente::getApellido1))
+//					.sorted(comparing(Cliente::getNombre))
+//					.collect(toList());
+
+			List<Cliente> clientes = list.stream().filter(c -> c.getApellido2() != null)
+							.sorted(comparing(c->c.getApellido1()))
+									.sorted(comparing(c->c.getApellido2()))
+											.sorted(comparing(c->c.getNombre()))
+													.collect(toList());
+
+			System.out.println(clientes);
 			
 		}
 		catch (RuntimeException e) {
@@ -203,8 +239,12 @@ class StreamsTest {
 		
 			List<Comercial> list = comHome.findAll();		
 			
-			//TODO STREAMS
-			
+			List<String> comerciales = list.stream().filter(comercial -> comercial.getNombre().contains("o") || comercial.getNombre().contains("el"))
+					.map(comercial -> comercial.getNombre())
+					.distinct()
+							.collect(toList());
+
+			comerciales.forEach(System.out::println);
 			comHome.commitTransaction();
 		}
 		catch (RuntimeException e) {
@@ -227,7 +267,7 @@ class StreamsTest {
 		
 			List<Pedido> list = pedHome.findAll();
 						
-			//TODO STREAMS
+
 		
 			pedHome.commitTransaction();
 		}

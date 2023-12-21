@@ -13,7 +13,7 @@ public class Comercial implements java.io.Serializable {
 	private String nombre;
 	private String apellido1;
 	private String apellido2;
-	private Float comisión;
+	private Float comision;
 	private Set pedidos = new HashSet(0);
 
 	public Comercial() {
@@ -24,11 +24,11 @@ public class Comercial implements java.io.Serializable {
 		this.apellido1 = apellido1;
 	}
 
-	public Comercial(String nombre, String apellido1, String apellido2, Float comisión, Set pedidos) {
+	public Comercial(String nombre, String apellido1, String apellido2, Float comision, Set pedidos) {
 		this.nombre = nombre;
 		this.apellido1 = apellido1;
 		this.apellido2 = apellido2;
-		this.comisión = comisión;
+		this.comision = comision;
 		this.pedidos = pedidos;
 	}
 
@@ -64,12 +64,12 @@ public class Comercial implements java.io.Serializable {
 		this.apellido2 = apellido2;
 	}
 
-	public Float getComisión() {
-		return this.comisión;
+	public Float getComision() {
+		return this.comision;
 	}
 
-	public void setComisión(Float comisión) {
-		this.comisión = comisión;
+	public void setComision(Float comision) {
+		this.comision = comision;
 	}
 
 	public Set getPedidos() {
@@ -83,7 +83,7 @@ public class Comercial implements java.io.Serializable {
 	@Override
 	public String toString() {
 		return "Comercial [id=" + id + ", nombre=" + nombre + ", apellido1=" + apellido1 + ", apellido2=" + apellido2
-				+ ", comisión=" + comisión + "]";
+				+ ", comisión=" + comision + "]";
 	}
 
 }
