@@ -9,9 +9,7 @@ import static java.util.Comparator.*;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.fail;
@@ -266,9 +264,13 @@ class StreamsTest {
 			pedHome.beginTransaction();
 		
 			List<Pedido> list = pedHome.findAll();
+
+			List<Pedido> clientes = list.stream().filter(c->c.getTotal() >= 300 && c.getTotal() <= 1000)
+							.filter(c->c.getFecha().toString().contains("2017"))
+									.collect(toList()).reversed();
 						
 
-		
+			clientes.forEach(System.out::println);
 			pedHome.commitTransaction();
 		}
 		catch (RuntimeException e) {
@@ -293,8 +295,15 @@ class StreamsTest {
 			
 			List<Comercial> list = comHome.findAll();		
 			
-			//TODO STREAMS
-			
+			/*String danielID = list.stream().filter(c->c.getNombre().equals("Daniel") && c.getApellido1().equals("Sáez"))
+							.collect(Collectors.toList())
+					.toString();
+//*/
+//			List<Set> daniel = list.stream().filter(c-> c.getNombre().equals("Daniel"))
+//					.map(comercial -> comercial.getPedidos())
+//							.collect(toList()).reversed();
+
+
 			comHome.commitTransaction();
 			
 		}
@@ -320,8 +329,13 @@ class StreamsTest {
 		
 			List<Pedido> list = pedHome.findAll();
 						
-			//TODO STREAMS
-			
+			List<Pedido> pedidosOr = list.stream().sorted(comparing(p->p.getFecha().toString()))
+							.collect(toList());
+
+			for (int i = 0; i < pedidosOr.size(); i++){
+				System.out.println(pedidosOr.get(i));
+			}
+
 			
 			pedHome.commitTransaction();
 		}
@@ -344,9 +358,16 @@ class StreamsTest {
 		
 			List<Pedido> list = pedHome.findAll();
 						
-			//TODO STREAMS
-			
+			List<Pedido> pedidos = list.stream().sorted(comparing(Pedido::getTotal).reversed())
+					.limit(2).collect(toList());
+
+			for (int i = 0; i < pedidos.size(); i++){
+				System.out.println(pedidos.get(i));
+			}
+
 			pedHome.commitTransaction();
+
+
 		}
 		catch (RuntimeException e) {
 			pedHome.rollbackTransaction();
@@ -367,10 +388,16 @@ class StreamsTest {
 			pedHome.beginTransaction();
 		
 			List<Pedido> list = pedHome.findAll();
-						
-			
-			//TODO STREAMS
-			
+
+			List<String> pedidos = list.stream().filter(p->p.getCliente().getPedidos() != null)
+					.map(p->"ID" + p.getCliente().getId())
+					.distinct()
+					.collect(toList());
+
+			for (int i = 0; i < pedidos.size(); i++){
+				System.out.println(pedidos.get(i));
+			}
+
 			pedHome.commitTransaction();
 		}
 		catch (RuntimeException e) {
@@ -394,8 +421,15 @@ class StreamsTest {
 			
 			List<Comercial> list = comHome.findAll();		
 			
-			//TODO STREAMS
-			
+
+			List<String> comerciales = list.stream().filter(c->c.getComision() >= 0.05 && c.getComision() <= 0.11)
+							.map(c -> "Nombre: " + c.getNombre() + " ||    Apellidos : " + c.getApellido1() + " " + c.getApellido2()
+							+ " || Comision: " + c.getComision())
+									.collect(toList());
+
+			for (int i = 0; i < comerciales.size(); i++){
+				System.out.println(comerciales.get(i));
+			}
 			comHome.commitTransaction();
 			
 		}
@@ -422,9 +456,8 @@ class StreamsTest {
 			
 			List<Comercial> list = comHome.findAll();		
 			
-			//TODO STREAMS
-			
-			
+			List<Comercial> comercial = list.stream().sorted(comparing(Comercial::getComision)).limit(1).collect(toList());
+			System.out.println(comercial);
 			comHome.commitTransaction();
 			
 		}
@@ -450,10 +483,26 @@ class StreamsTest {
 			//pedHome.beginTransaction();
 			comHome.beginTransaction();
 			
-			List<Comercial> list = comHome.findAll();		
-			
-			//TODO STREAMS
-			
+			List<Comercial> list = comHome.findAll();
+
+			List<Integer> longitud = list.stream().map(c-> c.getNombre().length()).collect(toList());
+			Optional<Integer> maximo = longitud.stream().reduce(Integer::max).map(l-> l.intValue());
+			System.out.println(maximo);
+			int max = maximo.get().intValue()-1;
+
+
+			/*&& c.getNombre().charAt(max) == 'n')*/
+
+
+			List<String> comerciales = list.stream()
+					.filter(c-> (c.getNombre().charAt(0) == 'A'  || c.getNombre().charAt(0) == 'P'))
+							.sorted(comparing(Comercial::getNombre))
+					.map(c->c.getNombre())
+					.collect(toList());
+
+
+
+			System.out.println(comerciales);
 			
 			comHome.commitTransaction();
 			
@@ -507,10 +556,12 @@ class StreamsTest {
 	
 			List<Cliente> list = cliHome.findAll();
 			
-			//TODO STREAMS
-			
+			List<Cliente> clientes = list.stream().filter(c->c.getNombre().charAt(0) != 'A')
+							.sorted(comparing(Cliente::getNombre)).collect(toList());
 			
 			cliHome.commitTransaction();
+
+			System.out.println(clientes);
 			
 		}
 		catch (RuntimeException e) {
@@ -535,9 +586,11 @@ class StreamsTest {
 		
 			List<Pedido> list = pedHome.findAll();
 						
-			
-			//TODO STREAMS
-			
+			List<Pedido> pedido = list.stream().filter(p->!p.getCliente().getPedidos().isEmpty())
+//					.sorted(comparing(Pedido::getCliente).thenComparing(Pedido::)
+					.collect(toList());
+			System.out.println(pedido);
+
 			pedHome.commitTransaction();
 		}
 		catch (RuntimeException e) {

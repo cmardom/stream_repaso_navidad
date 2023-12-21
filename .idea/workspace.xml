@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="edb1dfdc-a7b2-4f83-84bf-765af060388d" name="Changes" comment="Inicial">
+    <list default="true" id="edb1dfdc-a7b2-4f83-84bf-765af060388d" name="Changes" comment="hasta test6">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/iesvdm/streams/Comercial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/iesvdm/streams/Comercial.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/iesvdm/tests/StreamsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/iesvdm/tests/StreamsTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/iesvdm/streams/Comercial.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/iesvdm/streams/Comercial.hbm.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ventas.sql" beforeDir="false" afterPath="$PROJECT_DIR$/ventas.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,10 +28,20 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "JUnit.StreamsTest.test1.executor": "Run",
+    "JUnit.StreamsTest.test10.executor": "Run",
+    "JUnit.StreamsTest.test11.executor": "Run",
+    "JUnit.StreamsTest.test12.executor": "Run",
+    "JUnit.StreamsTest.test13.executor": "Run",
+    "JUnit.StreamsTest.test15.executor": "Run",
+    "JUnit.StreamsTest.test16.executor": "Run",
     "JUnit.StreamsTest.test2.executor": "Run",
     "JUnit.StreamsTest.test3.executor": "Run",
     "JUnit.StreamsTest.test4.executor": "Run",
     "JUnit.StreamsTest.test5.executor": "Run",
+    "JUnit.StreamsTest.test6.executor": "Run",
+    "JUnit.StreamsTest.test7.executor": "Run",
+    "JUnit.StreamsTest.test8.executor": "Run",
+    "JUnit.StreamsTest.test9.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
@@ -61,8 +67,8 @@
       <recent name="$PROJECT_DIR$/src/main/java/org/iesvdm" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.StreamsTest.test5">
-    <configuration name="StreamsTest.test1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.StreamsTest.test16">
+    <configuration name="StreamsTest.test11" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="stream" />
       <extension name="coverage">
         <pattern>
@@ -72,13 +78,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="org.iesvdm.tests" />
       <option name="MAIN_CLASS_NAME" value="org.iesvdm.tests.StreamsTest" />
-      <option name="METHOD_NAME" value="test1" />
+      <option name="METHOD_NAME" value="test11" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="StreamsTest.test2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="StreamsTest.test12" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="stream" />
       <extension name="coverage">
         <pattern>
@@ -88,13 +94,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="org.iesvdm.tests" />
       <option name="MAIN_CLASS_NAME" value="org.iesvdm.tests.StreamsTest" />
-      <option name="METHOD_NAME" value="test2" />
+      <option name="METHOD_NAME" value="test12" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="StreamsTest.test3" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="StreamsTest.test13" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="stream" />
       <extension name="coverage">
         <pattern>
@@ -104,13 +110,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="org.iesvdm.tests" />
       <option name="MAIN_CLASS_NAME" value="org.iesvdm.tests.StreamsTest" />
-      <option name="METHOD_NAME" value="test3" />
+      <option name="METHOD_NAME" value="test13" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="StreamsTest.test4" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="StreamsTest.test15" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="stream" />
       <extension name="coverage">
         <pattern>
@@ -120,13 +126,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="org.iesvdm.tests" />
       <option name="MAIN_CLASS_NAME" value="org.iesvdm.tests.StreamsTest" />
-      <option name="METHOD_NAME" value="test4" />
+      <option name="METHOD_NAME" value="test15" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="StreamsTest.test5" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="StreamsTest.test16" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="stream" />
       <extension name="coverage">
         <pattern>
@@ -136,7 +142,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="org.iesvdm.tests" />
       <option name="MAIN_CLASS_NAME" value="org.iesvdm.tests.StreamsTest" />
-      <option name="METHOD_NAME" value="test5" />
+      <option name="METHOD_NAME" value="test16" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -144,11 +150,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.StreamsTest.test5" />
-        <item itemvalue="JUnit.StreamsTest.test4" />
-        <item itemvalue="JUnit.StreamsTest.test3" />
-        <item itemvalue="JUnit.StreamsTest.test2" />
-        <item itemvalue="JUnit.StreamsTest.test1" />
+        <item itemvalue="JUnit.StreamsTest.test16" />
+        <item itemvalue="JUnit.StreamsTest.test15" />
+        <item itemvalue="JUnit.StreamsTest.test13" />
+        <item itemvalue="JUnit.StreamsTest.test12" />
+        <item itemvalue="JUnit.StreamsTest.test11" />
       </list>
     </recent_temporary>
   </component>
@@ -170,7 +176,7 @@
       <updated>1703153495648</updated>
       <workItem from="1703153496669" duration="892000" />
       <workItem from="1703156836229" duration="2730000" />
-      <workItem from="1703185249277" duration="897000" />
+      <workItem from="1703185249277" duration="6812000" />
     </task>
     <task id="LOCAL-00001" summary="Inicial">
       <option name="closed" value="true" />
@@ -180,7 +186,15 @@
       <option name="project" value="LOCAL" />
       <updated>1703153699527</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="hasta test6">
+      <option name="closed" value="true" />
+      <created>1703186166197</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1703186166197</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -188,6 +202,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Inicial" />
-    <option name="LAST_COMMIT_MESSAGE" value="Inicial" />
+    <MESSAGE value="hasta test6" />
+    <option name="LAST_COMMIT_MESSAGE" value="hasta test6" />
   </component>
 </project>
